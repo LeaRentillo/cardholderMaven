@@ -5,11 +5,9 @@
     <classes>
       <class name="CardholderMavenProject.Cardholder">
         <methods>
-          <include name="Statement"/>
-          <include name="Suspend"/>
+          <include name="OrderCard"/>
           <include name="Unload"/>
           <include name="Load"/>
-          <include name="ViewImage"/>
           <include name="PIN"/>
         </methods>
       </class> <!-- CardholderMavenProject.Cardholder -->
