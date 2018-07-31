@@ -15,7 +15,7 @@ import org.testng.Assert;
 
 
 
-public class Cardholder {
+public class Cardholder  {
    public  WebDriver driver;
    public  WebDriverWait wait;
    public  String User = "G00003@100002.com";
@@ -25,10 +25,15 @@ public class Cardholder {
    public static String nPIN = "9999";
    public static String cPIN = "9999";
    public static String asd = "Test"; 
-   public static String cardNumber = "5100000000000511";
+   public static String cardNumber = "4000000000000002";
    public static String securityNumber = "123";
+   public static String testEmail = "lea@iscale-solutuions.com";
    
-@Test (priority = 1, alwaysRun = true)
+   private static final int login = 1;
+   
+   
+   
+@Test (priority = login, alwaysRun = true)
   public void Login() {
 	
 //** FOR FIREFOX BROWSER **//
@@ -114,7 +119,8 @@ public class Cardholder {
  	
  	
 }
-@Test (priority = 2,alwaysRun = true)
+
+@Test (priority = 21,alwaysRun = false)
   public void Account() {
 	String Email; 
 	String textProfile;
@@ -158,7 +164,7 @@ public class Cardholder {
 	
 	driver.navigate().back(); 
   }	
-@Test (priority = 3,alwaysRun = true)
+@Test (priority = 31,alwaysRun = false)
   public void Profile() {
 	String displayProfile;
 	String profileUpdate;
@@ -222,67 +228,68 @@ public class Cardholder {
 	}
 
 }
+  
 @Test (priority = 4, alwaysRun = true)	
-  public void OrderCard(){
-
+public void OrderCard(){
 	
 	driver.get("https://dev.cardholder.an-other.co.uk/");
 	WebElement orderButton = driver.findElement(By.cssSelector("button[class='btn btn-default btn-activate-new-card']"));
 	orderButton.click();
+	wait = new WebDriverWait(driver, 20);
+
 	
-	WebElement PINcode = driver.findElement(By.cssSelector("input[id='ordercardform-pin']"));
+	//WebElement PINcode = driver.findElement();
+	WebElement PINcode = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
 	PINcode.sendKeys(PIN);
 	
 	WebElement Submit = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"orderCardModal\"]/div/div/div[3]/button[2]")));
 	Submit.click();
+	wait = new WebDriverWait(driver, 20);
 	
-	WebElement agree = driver.findElement(By.cssSelector("input[id='loadcard-agreed_to_terms']"));
+	WebElement agree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
 	agree.click();
 	
 	WebElement payment = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay-order-card']"));
 	payment.click();
-	wait = new WebDriverWait(driver, 60);
 	
-	driver.switchTo().frame("payment_page");
 	
-
-	new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div[3]/div/div[7]/form/input[5]"))).click();
+	wait = new WebDriverWait(driver, 60);	
+	WebElement creditcard = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("new_card_num")));
+	creditcard.sendKeys(cardNumber);
+  
+	WebElement securityCode = driver.findElement(By.name("new_card_cvv"));
+	securityCode.sendKeys(securityNumber);
+  
+	Select dropdownMonth = new Select(driver.findElement(By.name("new_card_exp_m")));
+	dropdownMonth.selectByValue("12");
+ 
+	Select dropdownYear = new Select(driver.findElement(By.name("new_card_exp_y")));
+	dropdownYear.selectByValue("2019");
+  
+	WebElement paymentEmail = driver.findElement(By.name("new_user_email"));
+	paymentEmail.sendKeys("testEmail");
+  
+  	WebElement submitPay = driver.findElement(By.name("ok"));
+	submitPay.click();
+  
+	wait = new WebDriverWait(driver, 30);	
+	WebElement nextPaymentForm = wait.until(ExpectedConditions.visibilityOfElementLocated( By.cssSelector("form[id='nxt']")));
+	Assert.assertTrue(nextPaymentForm.isEnabled());
+	wait = new WebDriverWait(driver, 10);
+ 
+	WebElement confirmPayment = driver.findElement(By.name("ok"));
+	confirmPayment.click();
+  
+	wait = new WebDriverWait(driver, 20);
+	WebElement displayCard = wait.until(ExpectedConditions.visibilityOfElementLocated( By.id("card-image-frame")));
 	
-
+	if(displayCard.isEnabled()) {
+		Assert.assertTrue(displayCard.isEnabled());
+	}else {
+		System.out.println("Error with reference.");
+	}
 	
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame("payment_page");
-    //WebElement creditcard = driver.findElement(By.id("st-pan-textfield"));
-    WebElement creditcard = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.id("st-pan-textfield")));
-    creditcard.sendKeys(cardNumber);
-    
-    
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame("payment_page");
-    Select dropdownMonth = new Select(driver.findElement(By.id("st-expirymonth-dropdown")));
-    dropdownMonth.selectByValue("12");
-    
-    
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame("payment_page");
-    Select dropdownYear = new Select(driver.findElement(By.id("st-expiryyear-dropdown")));
-    dropdownYear.selectByValue("2030");
-    
-    
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame("payment_page");
-    WebElement securityCode = driver.findElement(By.id("st-securitycode-textfield"));
-    securityCode.sendKeys(securityNumber);
-	
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame("payment_page");
-    WebElement submitPay = driver.findElement(By.id("submit"));
-    submitPay.click();
-    
-    driver.switchTo().defaultContent();
-    wait = new WebDriverWait(driver, 80);
-
-	
+  
 }
 @Test (priority = 5, alwaysRun = true)
   public void Load() {	
@@ -311,7 +318,7 @@ public class Cardholder {
 	
 	 
 
-	WebElement agreeTerms = driver.findElement(By.cssSelector("input[id='loadcard-agreed_to_terms']"));
+	WebElement agreeTerms = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
 	agreeTerms.click();
 	WebElement Proceed = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay']"));
 	Proceed.click();
@@ -332,46 +339,38 @@ public class Cardholder {
 	}
 	
 	
-	driver.switchTo().frame("payment_page");
+	wait = new WebDriverWait(driver, 60);	
+	WebElement creditcard = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("new_card_num")));
+	creditcard.sendKeys(cardNumber);
+  
+	WebElement securityCode = driver.findElement(By.name("new_card_cvv"));
+	securityCode.sendKeys(securityNumber);
+  
+	Select dropdownMonth = new Select(driver.findElement(By.name("new_card_exp_m")));
+	dropdownMonth.selectByValue("12");
+ 
+	Select dropdownYear = new Select(driver.findElement(By.name("new_card_exp_y")));
+	dropdownYear.selectByValue("2019");
+  
+	WebElement paymentEmail = driver.findElement(By.name("new_user_email"));
+	paymentEmail.sendKeys("testEmail");
+  
+  	WebElement submitPay = driver.findElement(By.name("ok"));
+	submitPay.click();
+  
+	wait = new WebDriverWait(driver, 30);	
+	WebElement nextPaymentForm = wait.until(ExpectedConditions.visibilityOfElementLocated( By.cssSelector("form[id='nxt']")));
+	Assert.assertTrue(nextPaymentForm.isEnabled());
+	wait = new WebDriverWait(driver, 10);
+ 
+	WebElement confirmPayment = driver.findElement(By.name("ok"));
+	confirmPayment.click();	
 	
-
-	new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div[3]/div/div[7]/form/input[5]"))).click();
-
-
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame("payment_page");
-    //WebElement creditcard = driver.findElement(By.id("st-pan-textfield"));
-    WebElement creditcard = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.id("st-pan-textfield")));
-    creditcard.sendKeys(cardNumber);
-    
-    
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame("payment_page");
-    Select dropdownMonth = new Select(driver.findElement(By.id("st-expirymonth-dropdown")));
-    dropdownMonth.selectByValue("12");
-    
-    
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame("payment_page");
-    Select dropdownYear = new Select(driver.findElement(By.id("st-expiryyear-dropdown")));
-    dropdownYear.selectByValue("2030");
-    
-    
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame("payment_page");
-    WebElement securityCode = driver.findElement(By.id("st-securitycode-textfield"));
-    securityCode.sendKeys(securityNumber);
-    
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame("payment_page");
-    WebElement submitPay = driver.findElement(By.id("submit"));
-    submitPay.click();
-    
-    
-	
+	String unloadStatus = driver.findElement(By.cssSelector("div[class='alert-dismissible alert-success alert fade in']")).getAttribute("innerHTML");
+	Assert.assertTrue(unloadStatus.contains("Your funds will be on your card shortly."));
   
 }
-@Test (priority = 6,alwaysRun = true) 
+@Test (priority = 61,alwaysRun = false) 
   public void Suspend() {
 
 	String UnsuspendText;	
@@ -412,7 +411,7 @@ public class Cardholder {
 	
 	
 }
-@Test (priority = 7,alwaysRun = true)
+@Test (priority = 71,alwaysRun = false)
   public void PIN() {
 	String successPIN;
 	driver.get("https://dev.cardholder.an-other.co.uk/");
@@ -466,7 +465,7 @@ public class Cardholder {
 	
 	
 }
-@Test (priority = 8,alwaysRun = true)
+@Test (priority = 1,alwaysRun = false)
   public void Statement() {
 
 	driver.get("https://dev.cardholder.an-other.co.uk/");
@@ -554,7 +553,7 @@ Actions  action = new Actions(driver);
 	driver.get("https://dev.cardholder.an-other.co.uk/");
 	
 }
-@Test (priority = 9)
+@Test (priority = 9, alwaysRun = true)
   public void Unload() {
 	String input = "10";
 	String Name = "QA Testing";
@@ -626,7 +625,7 @@ Actions  action = new Actions(driver);
 	
 	
 }
-@Test (priority = 10)
+@Test (priority = 101, alwaysRun = false)
   public void ViewImage() throws IOException {
 	//String fileWithPath = "C:\\Another Screenshots\\ViewImage.png";
 	driver.get("https://dev.cardholder.an-other.co.uk/");
