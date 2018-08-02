@@ -5,17 +5,17 @@
     <classes>
       <class name="CardholderMavenProject.Cardholder">
         <methods>
+          <include name="Statement"/>
+          <include name="LoadByBankTransfer"/>
+          <include name="Suspend"/>
+          <include name="LoadByCard"/>
+          <include name="Profile"/>
           <include name="OrderCard"/>
-          <include name="Unload"/>
+          <include name="Account"/>
           <include name="ViewImage"/>
           <include name="PIN"/>
         </methods>
       </class> <!-- CardholderMavenProject.Cardholder -->
-      <class name="CardholderMavenProject.test">
-        <methods>
-          <include name="Test"/>
-        </methods>
-      </class> <!-- CardholderMavenProject.test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
