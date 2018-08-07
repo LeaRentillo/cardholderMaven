@@ -265,7 +265,7 @@ public void OrderCard(){
 		
 		WebElement Submit = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"orderCardModal\"]/div/div/div[3]/button[2]")));
 		Submit.click();
-		wait = new WebDriverWait(driver, 20);
+		wait = new WebDriverWait(driver, 30);
 		
 		WebElement agree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
 		agree.click();
@@ -414,7 +414,7 @@ public void OrderCard(){
 		   
 			WebElement LoginLogo = driverProgram.findElement (By.cssSelector("img[class='login-logo']"));
 			Assert.assertTrue(LoginLogo.isDisplayed());			
-			 WebElement SignIn1 = driverProgram.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
+			WebElement SignIn1 =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"LoginForm\"]/button")));
 			   WebElement Username1 = driverProgram.findElement(By.xpath("//*[@id=\"loginform-login\"]"));
 			   Username1.sendKeys(userProgram);
 			   WebElement Password1 = driverProgram.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
@@ -760,8 +760,8 @@ public void LoadByBankTransfer() {
 		WebElement Proceed = driver.findElement(By.xpath("//*[@id=\"proceed-unload\"]"));
 		Proceed.click();
 		
-
-		WebElement Beneficiary =  driver.findElement(By.xpath("//input[@id='withdrawalform-beneficiaryname']"));
+		wait = new WebDriverWait(driver, 30);
+		WebElement Beneficiary =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='withdrawalform-beneficiaryname']")));	
 		Beneficiary.sendKeys(Name);
 		
 		WebElement Bank = driver.findElement(By.xpath("//*[@id=\"withdrawalform-bankname\"]"));
