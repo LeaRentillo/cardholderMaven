@@ -26,7 +26,7 @@ public class Cardholder  {
 	public  String User = "G00003@100002.com";
 	public  String Pass = "nQr6n6Td!9";
 	public  String userProgram = "dev_program";
-	public  String passProgram = "Testing1234!";
+	public  String passProgram = "Testing1234!!";
 	public  String newPasswordTest = "@Password123";
 	public static String PIN =  "1234";
 	public static String nPIN = "9999";
