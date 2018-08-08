@@ -260,6 +260,10 @@ public void OrderCard(){
 
 		
 		//WebElement PINcode = driver.findElement();
+		WebElement oCheckBox = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
+		
+		
+		oCheckBox.click();
 		WebElement PINcode = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
 		PINcode.sendKeys(PIN);
 		
@@ -574,7 +578,7 @@ public void LoadByBankTransfer() {
 		driver.get("https://dev.cardholder.an-other.co.uk/");
 
 		//WebElement buttonPIN = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"prepaid-cards-container\"]/table/tbody/tr[1]/td[4]/span[4]/button")));
-		WebElement buttonPIN = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pin-card']"));
+		WebElement buttonPIN = new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='btn btn-default btn-pin-card']")));
 		buttonPIN.click();
 
 		
@@ -600,7 +604,7 @@ public void LoadByBankTransfer() {
 		
 		
 		//successPIN = new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='alert-dismissible alert-success change-pin alert fade in']"))).getText();
-		successPIN = driver.findElement(By.cssSelector("div[class='alert-dismissible alert-danger error-updating-pin alert fade in']")).getText();
+		successPIN = new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[class='alert-dismissible alert-danger error-updating-pin alert fade in']"))).getText();
 		
 		
 	//** Validation when user change his/her PIN there should be a message on upper right displayed "The PIN is successfully changed" **//
@@ -754,7 +758,7 @@ public void LoadByBankTransfer() {
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
-		WebElement Agree = driver.findElement(By.xpath("//div[@class='form-group field-registrationform-agreed_to_terms']"));
+		WebElement Agree = driver.findElement(By.cssSelector("#unloadcard-agreed_to_terms]"));
 		Agree.click();
 		
 		WebElement Proceed = driver.findElement(By.xpath("//*[@id=\"proceed-unload\"]"));

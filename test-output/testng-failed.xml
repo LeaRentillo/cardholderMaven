@@ -7,10 +7,12 @@
         <methods>
           <include name="Statement"/>
           <include name="LoadByBankTransfer"/>
+          <include name="Login"/>
           <include name="Suspend"/>
           <include name="LoadByCard"/>
           <include name="Profile"/>
           <include name="OrderCard"/>
+          <include name="Unload"/>
           <include name="Account"/>
           <include name="ViewImage"/>
           <include name="PIN"/>
