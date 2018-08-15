@@ -758,11 +758,15 @@ public void LoadByBankTransfer() {
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
-		WebElement Agree = driver.findElement(By.cssSelector("#unloadcard-agreed_to_terms]"));
+		WebElement Agree = driver.findElement(By.name("agreed_to_terms"));
 		Agree.click();
+		/*wait = new WebDriverWait(driver, 10); 
+		WebElement Agree = wait.until(ExpectedConditions.elementToBeClickable(By.name("agreed_to_terms")));
+		Agree.click();*/
 		
-		WebElement Proceed = driver.findElement(By.xpath("//*[@id=\"proceed-unload\"]"));
+		WebElement Proceed = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"proceed-unload\"]")));
 		Proceed.click();
+			
 		
 		wait = new WebDriverWait(driver, 30);
 		WebElement Beneficiary =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='withdrawalform-beneficiaryname']")));	

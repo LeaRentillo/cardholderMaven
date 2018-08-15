@@ -7,7 +7,6 @@
         <methods>
           <include name="Statement"/>
           <include name="LoadByBankTransfer"/>
-          <include name="Login"/>
           <include name="Suspend"/>
           <include name="LoadByCard"/>
           <include name="Profile"/>

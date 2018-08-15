@@ -28,7 +28,7 @@ public class settings {
    	   			break;
            case "orderCardTest": runTestCase = true;
    	   			break;
-           case "pinTest": runTestCase = true;
+           case "pinTest": runTestCase = false;
    	   			break;
            case "profileTest": runTestCase = true;
    	   			break;
@@ -36,7 +36,7 @@ public class settings {
    	   			break;
            case "suspendedTest": runTestCase = true;
    	   			break;
-           case "unloadTest": runTestCase = true;
+           case "unloadTest": runTestCase = false;
    	   			break;
            case "viewImageTest": runTestCase = true;
    	   			break;
