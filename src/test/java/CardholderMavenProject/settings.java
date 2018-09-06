@@ -46,11 +46,11 @@ public class settings {
    	   			break;
            case "orderCardNonEUTest": runTestCase = false;
 	   			break;
-           case "orderCardEUTest": runTestCase = false;
+           case "orderCardEUTest": runTestCase = true;
 	   			break;
            case "loadByCardEUTest": runTestCase = false;
 	   			break;
-           case "loadByCardNonEUTest": runTestCase = true;
+           case "loadByCardNonEUTest": runTestCase = false;
 	   			break;
            default:  runTestCase = true;
                     break;

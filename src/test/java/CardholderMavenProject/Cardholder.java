@@ -743,6 +743,7 @@ public void OrderCardEU(){
 	
 	settings testSettings = new settings();
 	if(testSettings.skipTest("orderCardEUTest")){
+	
 		//** FOR CHROME BROWSER ** //
 				System.setProperty("webdriver.chrome.driver","C:\\Users\\Dell\\Documents\\LEA\\SELENIUM\\chromedriver_win32\\chromedriver.exe");
 				driver = new ChromeDriver();
@@ -760,16 +761,17 @@ public void OrderCardEU(){
 				Password1.sendKeys(EUPass);
 				SignIn1.click();
 				   
-				driver.get("https://dev.cardholder.an-other.co.uk/");
-		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
-		
-		/*Actions actions = new Actions(driver);
-		actions.moveToElement(orderButton).click().perform();*/
-		orderButton.click();
-					
-		//WebElement PINcode = driver.findElement();
-		WebElement ParseModal =  new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h3[class='modal-title']")));
-		System.out.println(ParseModal.getText());
+				wait = new WebDriverWait(driver, 30);
+				WebElement parseIndex = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main-content\"]/div[1]/div/h1")));
+				WebElement orderButton = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/div/span/span[1]/button"));
+				orderButton.click();
+				
+				
+				
+				
+				WebElement ParseModal = new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"exampleModalLabel\"]")));
+				System.out.println(ParseModal.getText());
+				wait = new WebDriverWait(driver, 30);
 		
 	}else{
 		throw new SkipException("Skipping orderCardEUTest case. ");
