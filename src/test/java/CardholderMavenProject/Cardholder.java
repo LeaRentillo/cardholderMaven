@@ -768,7 +768,7 @@ public void OrderCardEU(){
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 					
 		//WebElement PINcode = driver.findElement();
-		WebElement oCheckBox = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
+		WebElement oCheckBox = new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
 			
 			
 		oCheckBox.click();

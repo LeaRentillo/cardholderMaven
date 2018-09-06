@@ -44,7 +44,7 @@ public class settings {
    	   			break;
            case "viewImageTest": runTestCase = false;
    	   			break;
-           case "orderCardNonEUTest": runTestCase = true;
+           case "orderCardNonEUTest": runTestCase = false;
 	   			break;
            case "orderCardEUTest": runTestCase = true;
 	   			break;
