@@ -16,6 +16,8 @@ public class settings {
 	public static final int orderCardEUTest = 10;
 	public static final int loadByCardEUTest = 11;
 	public static final int loadByCardNonEUTest = 12;
+	public static final int orderCardTest = 15;
+	
 	public static final int pinTest = 13;
 	public static final int viewImageTest = 14;
 	   
@@ -26,7 +28,7 @@ public class settings {
 		   switch (testCase) {
            case "registrationTest": runTestCase = false;
         	   	break;
-           case "loginTest": runTestCase = false;
+           case "loginTest": runTestCase = true;
    	   			break;
            case "accountTest": runTestCase = false;
    	   			break;         
@@ -46,12 +48,14 @@ public class settings {
    	   			break;
            case "orderCardNonEUTest": runTestCase = false;
 	   			break;
-           case "orderCardEUTest": runTestCase = true;
+           case "orderCardEUTest": runTestCase = false;
 	   			break;
            case "loadByCardEUTest": runTestCase = false;
 	   			break;
            case "loadByCardNonEUTest": runTestCase = false;
 	   			break;
+           case "orderCardTest": runTestCase = true;
+  			break;	   			
            default:  runTestCase = true;
                     break;
 		   }
