@@ -776,13 +776,22 @@ public void OrderCardEU(){
 				
 				/*WebElement orderButton = driver.findElement(By.xpath("//button[contains(text(),'Order New Card')]"));
 				orderButton.click();*/
+
+				WebElement oCheckBox = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
+					
+					
+				actions.moveToElement(oCheckBox).click().perform();
+				WebElement PINcode = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
+				actions.moveToElement(PINcode).sendKeys(PIN).perform();
+					
+				WebElement Submit = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"orderCardModal\"]/div/div/div[3]/button[2]")));
+				actions.moveToElement(Submit).click().perform();
 				
 				
 				
-				
-				WebElement ParseModal = new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"exampleModalLabel\"]")));
-				System.out.println(ParseModal.getText());
-				wait = new WebDriverWait(driver, 30);
+				/*WebElement ParseModal = new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"exampleModalLabel\"]")));
+				System.out.println(actions.moveToElement(ParseModal).click().perform());
+				wait = new WebDriverWait(driver, 30);*/
 		
 	}else{
 		throw new SkipException("Skipping orderCardEUTest case. ");
