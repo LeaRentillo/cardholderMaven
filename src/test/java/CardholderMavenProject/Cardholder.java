@@ -777,7 +777,7 @@ public void OrderCardEU(){
 				/*WebElement orderButton = driver.findElement(By.xpath("//button[contains(text(),'Order New Card')]"));
 				orderButton.click();*/
 
-				WebElement oCheckBox = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
+				WebElement oCheckBox = driver.findElement(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input"));
 					
 				Actions actions2 = new Actions(driver);	
 				actions2.moveToElement(oCheckBox).click().perform();
