@@ -736,6 +736,8 @@ public void LoadByBankTransfer() {
 
 @Test (priority = settings.orderCardEUTest, alwaysRun = true)	
 public void OrderCardEU(){
+	if (driver != null)
+		driver.quit();
 	
 	  // wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-primary']"))).click();
 	
