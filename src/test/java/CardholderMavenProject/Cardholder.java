@@ -750,7 +750,7 @@ public void OrderCardEU(){
 		//**********************************//	   
 		wait = new WebDriverWait(driver, 20);   
 			   
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.get("https://dev.cardholder.an-other.co.uk/");
 
 		WebElement SignIn1 = driver.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
