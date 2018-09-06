@@ -761,7 +761,7 @@ public void OrderCardEU(){
 		SignIn1.click();
 			   
 		driver.get("https://dev.cardholder.an-other.co.uk/");
-		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
+		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
 		orderButton.click();
 		
 			
@@ -861,7 +861,7 @@ public void OrderCardNonEU(){
 			   
 		driver.get("https://dev.cardholder.an-other.co.uk/");
 
-		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
+		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
 		orderButton.click();
 		wait = new WebDriverWait(driver, 20);
 

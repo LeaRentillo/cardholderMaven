@@ -9,11 +9,11 @@
           <include name="LoadByBankTransfer"/>
           <include name="LoadByCardEU"/>
           <include name="LoadByCardNonEU"/>
+          <include name="Login"/>
           <include name="Suspend"/>
-          <include name="OrderCardEU"/>
           <include name="Profile"/>
+          <include name="Unload"/>
           <include name="Account"/>
-          <include name="OrderCardNonEU"/>
           <include name="ViewImage"/>
           <include name="PIN"/>
           <include name="Registration"/>
