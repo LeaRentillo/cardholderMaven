@@ -760,7 +760,7 @@ public void OrderCardEU(){
 				Password1.sendKeys(EUPass);
 				SignIn1.click();
 				   
-		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
+		WebElement orderButton =  driver.findElement(By.cssSelector("button[class='btn btn-default btn-activate-new-card']"));
 		
 		/*Actions actions = new Actions(driver);
 		actions.moveToElement(orderButton).click().perform();*/
