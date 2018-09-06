@@ -766,9 +766,12 @@ public void OrderCardEU(){
 				WebElement parseIndex = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main-content\"]/div[1]/div/h1")));
 				System.out.println(parseIndex.getText());
 				
-				/*WebElement orderButton = driver.findElement(By.cssSelector("button[class='btn btn-default btn-activate-new-card']"));
-				orderButton.click();
-				wait = new WebDriverWait(driver, 20);*/
+				
+				WebElement orderButton = driver.findElement(By.cssSelector("button[class='btn btn-default btn-activate-new-card']"));
+				Actions actions = new Actions(driver);
+				actions.moveToElement(orderButton).click().perform();
+				//orderButton.click();
+				wait = new WebDriverWait(driver, 20);
 				
 				
 				/*WebElement orderButton = driver.findElement(By.xpath("//button[contains(text(),'Order New Card')]"));
@@ -777,9 +780,9 @@ public void OrderCardEU(){
 				
 				
 				
-			/*	WebElement ParseModal = new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"exampleModalLabel\"]")));
+				WebElement ParseModal = new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"exampleModalLabel\"]")));
 				System.out.println(ParseModal.getText());
-				wait = new WebDriverWait(driver, 30);*/
+				wait = new WebDriverWait(driver, 30);
 		
 	}else{
 		throw new SkipException("Skipping orderCardEUTest case. ");
