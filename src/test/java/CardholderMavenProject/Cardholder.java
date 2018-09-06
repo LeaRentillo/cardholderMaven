@@ -763,8 +763,7 @@ public void OrderCardEU(){
 		//driver.get("https://dev.cardholder.an-other.co.uk/");
 		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
 		orderButton.click();
-		
-			
+					
 		//WebElement PINcode = driver.findElement();
 		WebElement oCheckBox = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
 			
