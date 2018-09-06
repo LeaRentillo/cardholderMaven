@@ -763,7 +763,8 @@ public void OrderCardEU(){
 				   
 				wait = new WebDriverWait(driver, 30);
 				WebElement parseIndex = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main-content\"]/div[1]/div/h1")));
-				WebElement orderButton = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/div/span/span[1]/button"));
+				System.out.println(parseIndex.getText());
+				WebElement orderButton = driver.findElement(By.xpath("//button[contains(text(),'Order New Card')]"));
 				orderButton.click();
 				
 				
