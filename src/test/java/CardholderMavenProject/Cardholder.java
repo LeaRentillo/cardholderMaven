@@ -761,11 +761,18 @@ public void OrderCardEU(){
 				Password1.sendKeys(EUPass);
 				SignIn1.click();
 				   
+				driver.get("https://dev.cardholder.an-other.co.uk/");
 				wait = new WebDriverWait(driver, 30);
 				WebElement parseIndex = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main-content\"]/div[1]/div/h1")));
 				System.out.println(parseIndex.getText());
-				WebElement orderButton = driver.findElement(By.xpath("//button[contains(text(),'Order New Card')]"));
+				
+				WebElement orderButton = driver.findElement(By.cssSelector("button[class='btn btn-default btn-activate-new-card']"));
 				orderButton.click();
+				wait = new WebDriverWait(driver, 20);
+				
+				
+				/*WebElement orderButton = driver.findElement(By.xpath("//button[contains(text(),'Order New Card')]"));
+				orderButton.click();*/
 				
 				
 				
