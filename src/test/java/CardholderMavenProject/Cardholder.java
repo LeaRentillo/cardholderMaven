@@ -789,7 +789,7 @@ public void OrderCardEU(){
 				
 				wait = new WebDriverWait(driver, 30);
 				
-				WebElement agree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
+				WebElement agree = driver.findElement(By.cssSelector("input[id='loadcard-agreed_to_terms']"));
 				agree.click();
 					
 				WebElement payment = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay-order-card']"));
