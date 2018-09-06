@@ -765,6 +765,7 @@ public void OrderCardEU(){
 		
 		Actions actions = new Actions(driver);
 		actions.moveToElement(orderButton).click().perform();
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 					
 		//WebElement PINcode = driver.findElement();
 		WebElement oCheckBox = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
@@ -863,11 +864,12 @@ public void OrderCardNonEU(){
 		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
 		Actions actions = new Actions(driver);
 		actions.moveToElement(orderButton).click().perform();
-		
-		wait = new WebDriverWait(driver, 20);
 
 		
 		//WebElement PINcode = driver.findElement();
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		
+		
 		WebElement oCheckBox = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
 			
 			
