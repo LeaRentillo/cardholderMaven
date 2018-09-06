@@ -2,12 +2,12 @@
 <testng-results skipped="12" failed="0" ignored="0" total="14" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="177956" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:16:21Z">
+  <suite name="Default suite" duration-ms="143473" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:03:30Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="177956" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:16:21Z">
+    <test name="Default test" duration-ms="143473" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:03:30Z">
       <class name="CardholderMavenProject.Cardholder">
-        <test-method status="SKIP" signature="Registration()[pri:1, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Registration" duration-ms="8" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:13:23Z">
+        <test-method status="SKIP" signature="Registration()[pri:1, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Registration" duration-ms="7" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:01:06Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping registrationTest case. ]]>
@@ -46,7 +46,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Registration -->
-        <test-method status="SKIP" signature="Login()[pri:2, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Login" duration-ms="1" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:13:23Z">
+        <test-method status="SKIP" signature="Login()[pri:2, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Login" duration-ms="4" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:01:06Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping LoginTest case. ]]>
@@ -85,7 +85,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="SKIP" signature="Account()[pri:3, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Account" duration-ms="0" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:13:23Z">
+        <test-method status="SKIP" signature="Account()[pri:3, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Account" duration-ms="3" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:01:06Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping accountTest case. ]]>
@@ -124,7 +124,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Account -->
-        <test-method status="SKIP" signature="LoadByBankTransfer()[pri:4, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="LoadByBankTransfer" duration-ms="1" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:13:23Z">
+        <test-method status="SKIP" signature="LoadByBankTransfer()[pri:4, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="LoadByBankTransfer" duration-ms="1" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:01:06Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping loadByBankTransfertest case. ]]>
@@ -163,7 +163,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoadByBankTransfer -->
-        <test-method status="SKIP" signature="Profile()[pri:5, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Profile" duration-ms="0" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:13:23Z">
+        <test-method status="SKIP" signature="Profile()[pri:5, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Profile" duration-ms="1" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:01:06Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping profileTest case. ]]>
@@ -202,7 +202,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Profile -->
-        <test-method status="SKIP" signature="Statement()[pri:6, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Statement" duration-ms="0" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:13:23Z">
+        <test-method status="SKIP" signature="Statement()[pri:6, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Statement" duration-ms="1" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:01:06Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping statementTest case. ]]>
@@ -241,7 +241,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Statement -->
-        <test-method status="SKIP" signature="Suspend()[pri:7, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Suspend" duration-ms="2" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:13:23Z">
+        <test-method status="SKIP" signature="Suspend()[pri:7, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Suspend" duration-ms="2" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:01:06Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping suspendedTest case. ]]>
@@ -280,7 +280,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Suspend -->
-        <test-method status="SKIP" signature="Unload()[pri:8, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Unload" duration-ms="1" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:13:23Z">
+        <test-method status="SKIP" signature="Unload()[pri:8, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="Unload" duration-ms="0" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:01:06Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping unloadTest case. ]]>
@@ -319,22 +319,22 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Unload -->
-        <test-method status="PASS" signature="OrderCardNonEU()[pri:9, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="OrderCardNonEU" duration-ms="87285" started-at="2018-09-06T05:13:23Z" finished-at="2018-09-06T05:14:50Z">
+        <test-method status="PASS" signature="OrderCardNonEU()[pri:9, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="OrderCardNonEU" duration-ms="65958" started-at="2018-09-06T06:01:06Z" finished-at="2018-09-06T06:02:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OrderCardNonEU -->
-        <test-method status="PASS" signature="OrderCardEU()[pri:10, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="OrderCardEU" duration-ms="89967" started-at="2018-09-06T05:14:50Z" finished-at="2018-09-06T05:16:20Z">
+        <test-method status="PASS" signature="OrderCardEU()[pri:10, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="OrderCardEU" duration-ms="76789" started-at="2018-09-06T06:02:12Z" finished-at="2018-09-06T06:03:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OrderCardEU -->
-        <test-method status="SKIP" signature="LoadByCardEU()[pri:11, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="LoadByCardEU" duration-ms="642" started-at="2018-09-06T05:16:20Z" finished-at="2018-09-06T05:16:21Z">
+        <test-method status="SKIP" signature="LoadByCardEU()[pri:11, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="LoadByCardEU" duration-ms="653" started-at="2018-09-06T06:03:29Z" finished-at="2018-09-06T06:03:30Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping loadByCardEUTest case. ]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.testng.SkipException: Skipping loadByCardEUTest case. 
-at CardholderMavenProject.Cardholder.LoadByCardEU(Cardholder.java:1085)
+at CardholderMavenProject.Cardholder.LoadByCardEU(Cardholder.java:1083)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -366,14 +366,14 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoadByCardEU -->
-        <test-method status="SKIP" signature="LoadByCardNonEU()[pri:12, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="LoadByCardNonEU" duration-ms="1" started-at="2018-09-06T05:16:21Z" finished-at="2018-09-06T05:16:21Z">
+        <test-method status="SKIP" signature="LoadByCardNonEU()[pri:12, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="LoadByCardNonEU" duration-ms="2" started-at="2018-09-06T06:03:30Z" finished-at="2018-09-06T06:03:30Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping loadByCardNonEUTest case. ]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.testng.SkipException: Skipping loadByCardNonEUTest case. 
-at CardholderMavenProject.Cardholder.LoadByCardNonEU(Cardholder.java:1242)
+at CardholderMavenProject.Cardholder.LoadByCardNonEU(Cardholder.java:1240)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -405,7 +405,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoadByCardNonEU -->
-        <test-method status="SKIP" signature="PIN()[pri:13, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="PIN" duration-ms="2" started-at="2018-09-06T05:16:21Z" finished-at="2018-09-06T05:16:21Z">
+        <test-method status="SKIP" signature="PIN()[pri:13, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="PIN" duration-ms="1" started-at="2018-09-06T06:03:30Z" finished-at="2018-09-06T06:03:30Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping pinTest case. ]]>
@@ -444,7 +444,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PIN -->
-        <test-method status="SKIP" signature="ViewImage()[pri:14, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="ViewImage" duration-ms="3" started-at="2018-09-06T05:16:21Z" finished-at="2018-09-06T05:16:21Z">
+        <test-method status="SKIP" signature="ViewImage()[pri:14, instance:CardholderMavenProject.Cardholder@6fd02e5]" name="ViewImage" duration-ms="1" started-at="2018-09-06T06:03:30Z" finished-at="2018-09-06T06:03:30Z">
           <exception class="org.testng.SkipException">
             <message>
               <![CDATA[Skipping viewImageTest case. ]]>

@@ -859,8 +859,7 @@ public void OrderCardNonEU(){
 			   
 			   
 		//driver.get("https://dev.cardholder.an-other.co.uk/");
-		wait = new WebDriverWait(driver, 30);
-		WebElement orderButton =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main-content\"]/div[1]/div/span/span[1]/button")));
+		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
 		orderButton.click();
 		wait = new WebDriverWait(driver, 20);
 
