@@ -779,8 +779,8 @@ public void OrderCardEU(){
 
 				WebElement oCheckBox = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
 					
-					
-				actions.moveToElement(oCheckBox).click().perform();
+				Actions actions2 = new Actions(driver);	
+				actions2.moveToElement(oCheckBox).click().perform();
 				WebElement PINcode = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
 				actions.moveToElement(PINcode).sendKeys(PIN).perform();
 					
