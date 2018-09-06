@@ -767,7 +767,7 @@ public void OrderCardEU(){
 		actions.moveToElement(orderButton).click().perform();
 					
 		//WebElement PINcode = driver.findElement();
-		WebElement ParseModal =  new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"exampleModalLabel\"]")));
+		WebElement ParseModal =  new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h3[class='modal-title']")));
 		System.out.println(ParseModal.getText());
 		
 	}else{
