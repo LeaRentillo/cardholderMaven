@@ -763,13 +763,11 @@ public void OrderCardEU(){
 		
 		Actions actions = new Actions(driver);
 		actions.moveToElement(orderButton).click().perform();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 					
 		//WebElement PINcode = driver.findElement();
-		WebElement oCheckBox = new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#ordercardform-card_type > label:nth-child(1) > input[type=\"radio\"]")));
-			
-			
+		WebElement oCheckBox = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#ordercardform-card_type > label:nth-child(1) > input[type=\"radio\"]")));
 		oCheckBox.click();
+		
 		WebElement PINcode = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
 		PINcode.sendKeys(PIN);
 		
