@@ -743,28 +743,28 @@ public void OrderCardEU(){
 	
 	settings testSettings = new settings();
 	if(testSettings.skipTest("orderCardEUTest")){
-
 		//** FOR CHROME BROWSER ** //
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\Dell\\Documents\\LEA\\SELENIUM\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
-		//**********************************//	   
-		wait = new WebDriverWait(driver, 20);   
-			   
-		driver.manage().window().maximize();
-		driver.get("https://dev.cardholder.an-other.co.uk/");
+				System.setProperty("webdriver.chrome.driver","C:\\Users\\Dell\\Documents\\LEA\\SELENIUM\\chromedriver_win32\\chromedriver.exe");
+				driver = new ChromeDriver();
+				//**********************************//	   
+				
+				wait = new WebDriverWait(driver, 20);   
+				   
+				driver.manage().window().maximize();
+				driver.get("https://dev.cardholder.an-other.co.uk/");
 
-		WebElement SignIn1 = driver.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
-		WebElement Username1 = driver.findElement(By.xpath("//*[@id=\"loginform-login\"]"));
-		Username1.sendKeys(EUUser);
-		WebElement Password1 = driver.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
-		Password1.sendKeys(EUPass);
-		SignIn1.click();
-			   
-
+				WebElement SignIn1 = driver.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
+				WebElement Username1 = driver.findElement(By.xpath("//*[@id=\"loginform-login\"]"));
+				Username1.sendKeys(EUUser);
+				WebElement Password1 = driver.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
+				Password1.sendKeys(EUPass);
+				SignIn1.click();
+				   
 		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
 		
-		Actions actions = new Actions(driver);
-		actions.moveToElement(orderButton).click().perform();
+		/*Actions actions = new Actions(driver);
+		actions.moveToElement(orderButton).click().perform();*/
+		orderButton.click();
 					
 		//WebElement PINcode = driver.findElement();
 		WebElement ParseModal =  new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h3[class='modal-title']")));
