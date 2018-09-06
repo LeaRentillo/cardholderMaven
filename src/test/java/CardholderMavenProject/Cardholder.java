@@ -760,11 +760,7 @@ public void OrderCardEU(){
 		Password1.sendKeys(EUPass);
 		SignIn1.click();
 			   
-<<<<<<< HEAD
-		//driver.get("https://dev.cardholder.an-other.co.uk/");
-=======
-		driver.get("https://dev.cardholder.an-other.co.uk/");
->>>>>>> refs/remotes/origin/master
+
 		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
 		orderButton.click();
 					
@@ -861,13 +857,7 @@ public void OrderCardNonEU(){
 			   
 		// wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-primary']"))).click();
 			   
-			   
-<<<<<<< HEAD
-		//driver.get("https://dev.cardholder.an-other.co.uk/");
-=======
-		driver.get("https://dev.cardholder.an-other.co.uk/");
 
->>>>>>> refs/remotes/origin/master
 		WebElement orderButton =  new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
 		orderButton.click();
 		wait = new WebDriverWait(driver, 20);
