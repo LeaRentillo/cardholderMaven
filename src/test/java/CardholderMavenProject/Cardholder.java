@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -1278,7 +1279,7 @@ public void OrderCard(){
 				
 				wait = new WebDriverWait(driver, 20);   
 				   
-				driver.manage().window().maximize();
+				driver.manage().window().setSize(new Dimension(1944,1084));
 				driver.get("https://dev.cardholder.an-other.co.uk/");
 
 				WebElement SignIn1 = driver.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
