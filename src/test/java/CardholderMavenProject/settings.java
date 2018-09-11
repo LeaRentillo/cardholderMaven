@@ -5,17 +5,16 @@ public class settings {
 	public static final int registrationTest = 1;
 	public static final int loginTest = 2;
 	public static final int accountTest = 3;
-/*	public static final int orderCardTest = 4;
-	public static final int loadByCardTest = 6;*/
+/*	public static final int loadByCardTest = 6;*/
 	public static final int loadByBankTransfertest = 4;
 	public static final int profileTest = 5;
 	public static final int statementTest = 6;
 	public static final int suspendedTest = 7;
 	public static final int unloadTest = 8;
 	public static final int orderCardNonEUTest = 9;
-	public static final int orderCardEUTest = 10;
-	public static final int loadByCardEUTest = 11;
-	public static final int loadByCardNonEUTest = 12;
+	public static final int loadByCardEUTest = 10;
+	public static final int loadByCardNonEUTest = 11;
+	public static final int orderCardEUTest = 12;
 	public static final int orderCardTest = 15;
 	
 	public static final int pinTest = 13;
@@ -55,7 +54,8 @@ public class settings {
            case "loadByCardNonEUTest": runTestCase = false;
 	   			break;
            case "orderCardTest": runTestCase = true;
-  			break;	   			
+  			break;
+	   			
            default:  runTestCase = true;
                     break;
 		   }
