@@ -4,6 +4,7 @@ public class settings {
 
 	public static final int registrationTest = 1;
 	public static final int loginTest = 2;
+	public static final int orderCardTest1 = 3;
 	public static final int accountTest = 3;
 /*	public static final int loadByCardTest = 6;*/
 	public static final int loadByBankTransfertest = 4;
@@ -27,10 +28,12 @@ public class settings {
 		   switch (testCase) {
            case "registrationTest": runTestCase = false;
         	   	break;
-           case "loginTest": runTestCase = false;
+           case "loginTest": runTestCase = true;
    	   			break;
+           case "orderCardTest1": runTestCase = true;
+   	   			break;  
            case "accountTest": runTestCase = false;
-   	   			break;         
+   	   			break;  
            case "loadByBankTransfertest": runTestCase = false;
    	   			break;          
            case "pinTest": runTestCase = false;
@@ -53,7 +56,7 @@ public class settings {
 	   			break;
            case "loadByCardNonEUTest": runTestCase = false;
 	   			break;
-           case "orderCardTest": runTestCase = true;
+           case "orderCardTest": runTestCase = false;
   			break;
 	   			
            default:  runTestCase = true;
