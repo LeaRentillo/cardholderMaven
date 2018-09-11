@@ -1309,8 +1309,8 @@ public void OrderCard(){
 				actions.moveToElement(oCheckBox).click().sendKeys(oCheckBox,Keys.ENTER).perform();
 				
 				//oCheckBox.click();
-				WebElement PINcode = new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
-				actions.moveToElement(PINcode).click().sendKeys(PINcode,PIN).perform();
+				/*WebElement PINcode = new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
+				actions.moveToElement(PINcode).click().sendKeys(PINcode,PIN).perform();*/
 				//PINcode.sendKeys(PIN);
 					
 				WebElement Submit = new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"orderCardModal\"]/div/div/div[3]/button[2]")));
