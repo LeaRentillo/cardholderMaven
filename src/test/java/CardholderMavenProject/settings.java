@@ -27,7 +27,7 @@ public class settings {
 		   switch (testCase) {
            case "registrationTest": runTestCase = false;
         	   	break;
-           case "loginTest": runTestCase = true;
+           case "loginTest": runTestCase = false;
    	   			break;
            case "accountTest": runTestCase = false;
    	   			break;         

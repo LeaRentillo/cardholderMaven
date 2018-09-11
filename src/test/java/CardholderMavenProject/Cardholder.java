@@ -1294,7 +1294,7 @@ public void OrderCard(){
 				System.out.println(parseIndex.getText());
 				
 				
-				WebElement orderButton = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
+				WebElement orderButton = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main-content\"]/div[1]/div/span/span/button")));
 			
 				orderButton.click();
 				

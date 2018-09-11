@@ -6,6 +6,7 @@
       <class name="CardholderMavenProject.Cardholder">
         <methods>
           <include name="LoadByCardEU"/>
+          <include name="Login"/>
           <include name="Suspend"/>
           <include name="OrderCardEU"/>
           <include name="Profile"/>
