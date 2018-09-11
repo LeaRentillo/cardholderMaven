@@ -1295,8 +1295,8 @@ public void OrderCard(){
 				
 				
 				WebElement orderButton = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main-content\"]/div[1]/div/span/span/button")));
-			
-				orderButton.click();
+				Actions actions = new Actions(driver);
+				actions.moveToElement(orderButton).click().perform();
 				
 				//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 				
