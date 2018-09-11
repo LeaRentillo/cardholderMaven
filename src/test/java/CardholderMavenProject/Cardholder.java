@@ -1310,19 +1310,19 @@ public void OrderCard(){
 				
 				//oCheckBox.click();
 				WebElement PINcode = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
-				actions.moveToElement(PINcode).click().sendKeys(PINcode,PIN).perform();;
+				actions.moveToElement(PINcode).click().sendKeys(PINcode,PIN).perform();
 				//PINcode.sendKeys(PIN);
 					
 				WebElement Submit = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"orderCardModal\"]/div/div/div[3]/button[2]")));
-				Submit.click();
+				actions.moveToElement(Submit).click().perform();
 				wait = new WebDriverWait(driver, 30);
 									
-				/*WebElement agree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
-				actions.moveToElement(agree).click().perform();
-				//agree.click();
+				WebElement agree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
+				//actions.moveToElement(agree).click().perform();
+				agree.click();
 					
 				
-				WebElement payment = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay-order-card']"));
+				/*WebElement payment = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay-order-card']"));
 				payment.click();
 					
 					
