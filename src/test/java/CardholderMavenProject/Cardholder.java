@@ -1294,8 +1294,8 @@ public void OrderCard(){
 				System.out.println(parseIndex.getText());
 				
 				
-				WebElement orderButton = driver.findElement(By.cssSelector("button[class='btn btn-default btn-activate-new-card']"));
-				Actions actions = new Actions(driver);
+				WebElement orderButton = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-default btn-activate-new-card']")));
+			
 				orderButton.click();
 				
 				//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
