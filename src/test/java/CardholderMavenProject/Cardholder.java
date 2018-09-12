@@ -1381,16 +1381,16 @@ public void OrderCard(){
 }
 @Test (priority = settings.orderCardTest1, alwaysRun = true)	
 public void OrderCard1(){
-	//if (driver != null)
-	//	driver.quit();
+	if (driver != null)
+		driver.quit();
 	settings testSettings = new settings();
 	if(testSettings.skipTest("orderCardTest1")){
 		//System.setProperty("webdriver.chrome.driver","C:\\Users\\Dell\\Documents\\LEA\\SELENIUM\\chromedriver_win32\\chromedriver.exe");
-		//driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		//**********************************//	   
 		
-		//wait = new WebDriverWait(driver, 20);   
-		//driver.manage().window().maximize();
+		wait = new WebDriverWait(driver, 20);   
+		driver.manage().window().maximize();
 		driver.get("https://dev.cardholder.an-other.co.uk/");
 
 		WebElement SignIn1 = driver.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
