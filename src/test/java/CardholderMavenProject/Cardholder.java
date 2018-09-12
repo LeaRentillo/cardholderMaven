@@ -240,7 +240,7 @@ public void OrderCard1(){
 		WebElement agree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
 		agree.click();
 		
-		WebElement payment = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay-order-card']"));
+		/*WebElement payment = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay-order-card']"));
 		payment.click();
 		
 		
@@ -278,7 +278,7 @@ public void OrderCard1(){
 			Assert.assertTrue(displayCard.isEnabled());
 		}else {
 			System.out.println("Error with reference.");
-		}
+		}*/
 	}else{
 		throw new SkipException("Skipping orderCardTest1 case. ");
 	}
