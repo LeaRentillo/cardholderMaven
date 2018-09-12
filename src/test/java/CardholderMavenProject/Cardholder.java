@@ -23,7 +23,7 @@ import org.testng.SkipException;
 
 public class Cardholder  {
 	 
-	public  WebDriver driver,driverProgram,driverRegister,driver1;
+	public  WebDriver driver,driverProgram,driverRegister;
 	public  WebDriverWait wait;
 	public  String User = "G00003@100002.com";
 	public  String Pass = "nQr6n6Td!9";
@@ -1386,36 +1386,39 @@ public void OrderCard1(){
 	settings testSettings = new settings();
 	if(testSettings.skipTest("orderCardTest1")){
 		//System.setProperty("webdriver.chrome.driver","C:\\Users\\Dell\\Documents\\LEA\\SELENIUM\\chromedriver_win32\\chromedriver.exe");
-		driver1 = new ChromeDriver();
+		//driver = new ChromeDriver();
 		//**********************************//	   
 		
-		wait = new WebDriverWait(driver1, 20);   
-		driver1.manage().window().maximize();
-		driver1.get("https://dev.cardholder.an-other.co.uk/");
+		//wait = new WebDriverWait(driver, 20);   
+		//driver.manage().window().maximize();
+		driver.get("https://dev.cardholder.an-other.co.uk/");
 
-		WebElement SignIn1 = driver1.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
-		WebElement Username1 = driver1.findElement(By.xpath("//*[@id=\"loginform-login\"]"));
+		WebElement SignIn1 = driver.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
+		WebElement Username1 = driver.findElement(By.xpath("//*[@id=\"loginform-login\"]"));
 		Username1.sendKeys(EUUser);
-		WebElement Password1 = driver1.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
+		WebElement Password1 = driver.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
 		Password1.sendKeys(EUPass);
 		SignIn1.click();
 		
-		driver1.get("https://dev.cardholder.an-other.co.uk/");
-		WebElement orderButton = driver1.findElement(By.cssSelector("button[class='btn btn-default btn-activate-new-card']"));
+		WebElement parseIndex = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main-content\"]/div[1]/div/h1")));
+		System.out.println(parseIndex.getText());
+		
+		//driver.get("https://dev.cardholder.an-other.co.uk/");
+		WebElement orderButton = driver.findElement(By.cssSelector("button[class='btn btn-default btn-activate-new-card']"));
 		orderButton.click();
-		wait = new WebDriverWait(driver1, 20);
+		wait = new WebDriverWait(driver, 20);
 
-		WebElement oCheckBox = new WebDriverWait(driver1, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
+		WebElement oCheckBox = new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
 		/*actions.moveToElement(oCheckBox).click().sendKeys(oCheckBox,Keys.ENTER).perform();*/
 		
 		oCheckBox.click();
 		//WebElement PINcode = driver.findElement();
-		WebElement PINcode = new WebDriverWait(driver1, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
+		WebElement PINcode = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
 		PINcode.sendKeys(PIN);
 		
-		WebElement Submit = new WebDriverWait(driver1, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"orderCardModal\"]/div/div/div[3]/button[2]")));
+		WebElement Submit = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"orderCardModal\"]/div/div/div[3]/button[2]")));
 		Submit.click();
-		wait = new WebDriverWait(driver1, 30);
+		wait = new WebDriverWait(driver, 30);
 		
 		WebElement agree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
 		agree.click();
