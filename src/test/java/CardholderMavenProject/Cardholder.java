@@ -216,73 +216,7 @@ public class Cardholder  {
 	}
 }
 
-@Test (priority = settings.orderCardTest1, alwaysRun = true)	
-public void OrderCard1(){
-	settings testSettings = new settings();
-	if(testSettings.skipTest("orderCardTest1")){
-		driver.get("https://dev.cardholder.an-other.co.uk/");
-		WebElement orderButton = driver.findElement(By.cssSelector("button[class='btn btn-default btn-activate-new-card']"));
-		orderButton.click();
-		wait = new WebDriverWait(driver, 20);
 
-		WebElement oCheckBox = new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
-		/*actions.moveToElement(oCheckBox).click().sendKeys(oCheckBox,Keys.ENTER).perform();*/
-		
-		oCheckBox.click();
-		//WebElement PINcode = driver.findElement();
-		WebElement PINcode = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
-		PINcode.sendKeys(PIN);
-		
-		WebElement Submit = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"orderCardModal\"]/div/div/div[3]/button[2]")));
-		Submit.click();
-		wait = new WebDriverWait(driver, 30);
-		
-		WebElement agree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
-		agree.click();
-		
-		/*WebElement payment = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay-order-card']"));
-		payment.click();
-		
-		
-		wait = new WebDriverWait(driver, 60);	
-		WebElement creditcard = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("new_card_num")));
-		creditcard.sendKeys(cardNumberCC);
-	  
-		WebElement securityCode = driver.findElement(By.name("new_card_cvv"));
-		securityCode.sendKeys(securityNumber);
-	  
-		Select dropdownMonth = new Select(driver.findElement(By.name("new_card_exp_m")));
-		dropdownMonth.selectByValue("12");
-	 
-		Select dropdownYear = new Select(driver.findElement(By.name("new_card_exp_y")));
-		dropdownYear.selectByValue("2019");
-	  
-		WebElement paymentEmail = driver.findElement(By.name("new_user_email"));
-		paymentEmail.sendKeys("testEmail");
-	  
-	  	WebElement submitPay = driver.findElement(By.name("ok"));
-		submitPay.click();
-	  
-		wait = new WebDriverWait(driver, 30);	
-		WebElement nextPaymentForm = wait.until(ExpectedConditions.visibilityOfElementLocated( By.cssSelector("form[id='nxt']")));
-		Assert.assertTrue(nextPaymentForm.isEnabled());
-		wait = new WebDriverWait(driver, 10);
-	 
-		WebElement confirmPayment = driver.findElement(By.name("ok"));
-		confirmPayment.click();
-	  
-		wait = new WebDriverWait(driver, 20);
-		WebElement displayCard = wait.until(ExpectedConditions.visibilityOfElementLocated( By.id("card-image-frame")));
-		
-		if(displayCard.isEnabled()) {
-			Assert.assertTrue(displayCard.isEnabled());
-		}else {
-			System.out.println("Error with reference.");
-		}*/
-	}else{
-		throw new SkipException("Skipping orderCardTest1 case. ");
-	}
-}
 
 @Test (priority = settings.accountTest,alwaysRun = true)
   public void Account() {
@@ -1445,6 +1379,89 @@ public void OrderCard(){
 	}
 	
 }
+@Test (priority = settings.orderCardTest1, alwaysRun = true)	
+public void OrderCard1(){
+	if (driver != null)
+		driver.quit();
+	settings testSettings = new settings();
+	if(testSettings.skipTest("orderCardTest1")){
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Dell\\Documents\\LEA\\SELENIUM\\chromedriver_win32\\chromedriver.exe");
+		driver = new ChromeDriver();
+		//**********************************//	   
+		
+		wait = new WebDriverWait(driver, 20);   
+		driver.manage().window().maximize();
+		driver.get("https://dev.cardholder.an-other.co.uk/");
 
+		WebElement SignIn1 = driver.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
+		WebElement Username1 = driver.findElement(By.xpath("//*[@id=\"loginform-login\"]"));
+		Username1.sendKeys(EUUser);
+		WebElement Password1 = driver.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
+		Password1.sendKeys(EUPass);
+		SignIn1.click();
+		
+		driver.get("https://dev.cardholder.an-other.co.uk/");
+		WebElement orderButton = driver.findElement(By.cssSelector("button[class='btn btn-default btn-activate-new-card']"));
+		orderButton.click();
+		wait = new WebDriverWait(driver, 20);
+
+		WebElement oCheckBox = new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ordercardform-card_type\"]/label[1]/input")));
+		/*actions.moveToElement(oCheckBox).click().sendKeys(oCheckBox,Keys.ENTER).perform();*/
+		
+		oCheckBox.click();
+		//WebElement PINcode = driver.findElement();
+		WebElement PINcode = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='ordercardform-pin']")));
+		PINcode.sendKeys(PIN);
+		
+		WebElement Submit = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"orderCardModal\"]/div/div/div[3]/button[2]")));
+		Submit.click();
+		wait = new WebDriverWait(driver, 30);
+		
+		WebElement agree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
+		agree.click();
+		
+		/*WebElement payment = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay-order-card']"));
+		payment.click();
+		
+		
+		wait = new WebDriverWait(driver, 60);	
+		WebElement creditcard = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("new_card_num")));
+		creditcard.sendKeys(cardNumberCC);
+	  
+		WebElement securityCode = driver.findElement(By.name("new_card_cvv"));
+		securityCode.sendKeys(securityNumber);
+	  
+		Select dropdownMonth = new Select(driver.findElement(By.name("new_card_exp_m")));
+		dropdownMonth.selectByValue("12");
+	 
+		Select dropdownYear = new Select(driver.findElement(By.name("new_card_exp_y")));
+		dropdownYear.selectByValue("2019");
+	  
+		WebElement paymentEmail = driver.findElement(By.name("new_user_email"));
+		paymentEmail.sendKeys("testEmail");
+	  
+	  	WebElement submitPay = driver.findElement(By.name("ok"));
+		submitPay.click();
+	  
+		wait = new WebDriverWait(driver, 30);	
+		WebElement nextPaymentForm = wait.until(ExpectedConditions.visibilityOfElementLocated( By.cssSelector("form[id='nxt']")));
+		Assert.assertTrue(nextPaymentForm.isEnabled());
+		wait = new WebDriverWait(driver, 10);
+	 
+		WebElement confirmPayment = driver.findElement(By.name("ok"));
+		confirmPayment.click();
+	  
+		wait = new WebDriverWait(driver, 20);
+		WebElement displayCard = wait.until(ExpectedConditions.visibilityOfElementLocated( By.id("card-image-frame")));
+		
+		if(displayCard.isEnabled()) {
+			Assert.assertTrue(displayCard.isEnabled());
+		}else {
+			System.out.println("Error with reference.");
+		}*/
+	}else{
+		throw new SkipException("Skipping orderCardTest1 case. ");
+	}
+}
 
 }//main

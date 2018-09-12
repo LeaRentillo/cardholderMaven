@@ -14,7 +14,6 @@
           <include name="Account"/>
           <include name="OrderCardNonEU"/>
           <include name="ViewImage"/>
-          <include name="OrderCard1"/>
           <include name="Statement"/>
           <include name="LoadByBankTransfer"/>
           <include name="LoadByCardNonEU"/>
