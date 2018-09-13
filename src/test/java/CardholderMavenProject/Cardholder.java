@@ -1410,9 +1410,8 @@ public void OrderCard1(){
 		WebElement agree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='loadcard-agreed_to_terms']")));
 		agree.click();
 		
-		/*WebElement payment = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay-order-card']"));
+		WebElement payment = driver.findElement(By.cssSelector("button[class='btn btn-default btn-pay-order-card']"));
 		payment.click();
-		
 		
 		wait = new WebDriverWait(driver, 60);	
 		WebElement creditcard = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("new_card_num")));
@@ -1420,19 +1419,19 @@ public void OrderCard1(){
 	  
 		WebElement securityCode = driver.findElement(By.name("new_card_cvv"));
 		securityCode.sendKeys(securityNumber);
-	  
+		  
 		Select dropdownMonth = new Select(driver.findElement(By.name("new_card_exp_m")));
 		dropdownMonth.selectByValue("12");
-	 
+		 
 		Select dropdownYear = new Select(driver.findElement(By.name("new_card_exp_y")));
 		dropdownYear.selectByValue("2019");
-	  
+		  
 		WebElement paymentEmail = driver.findElement(By.name("new_user_email"));
 		paymentEmail.sendKeys("testEmail");
-	  
+		  
 	  	WebElement submitPay = driver.findElement(By.name("ok"));
 		submitPay.click();
-	  
+		  
 		wait = new WebDriverWait(driver, 30);	
 		WebElement nextPaymentForm = wait.until(ExpectedConditions.visibilityOfElementLocated( By.cssSelector("form[id='nxt']")));
 		Assert.assertTrue(nextPaymentForm.isEnabled());
@@ -1440,15 +1439,23 @@ public void OrderCard1(){
 	 
 		WebElement confirmPayment = driver.findElement(By.name("ok"));
 		confirmPayment.click();
-	  
-		wait = new WebDriverWait(driver, 20);
+		  
+		wait = new WebDriverWait(driver, 50);
 		WebElement displayCard = wait.until(ExpectedConditions.visibilityOfElementLocated( By.id("card-image-frame")));
-		
+			
 		if(displayCard.isEnabled()) {
 			Assert.assertTrue(displayCard.isEnabled());
+			wait.until(ExpectedConditions.visibilityOfElementLocated( By.xpath("//*[@id=\"cardImageModal\"]/div/div/div[3]/button"))).click();
+
+			WebElement ParseOrderCardStatus = wait
+					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"w0\"]")));
+			String OrderCardStatus = ParseOrderCardStatus.getText();
+			Assert.assertTrue(OrderCardStatus.contains("Card successfully created! Please wait for the popup to view the card image or click the link below the card number."));
+			
 		}else {
 			System.out.println("Error with reference.");
-		}*/
+		}
+		
 	}else{
 		throw new SkipException("Skipping orderCardTest1 case. ");
 	}
