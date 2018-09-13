@@ -1521,6 +1521,26 @@ public void LoginCall(String param_user, String param_pass) {
 		   Password1.sendKeys(param_pass);
 		   SignIn1.click();
 		   
+
+		   Select dropdownProgram = new Select(driver.findElement(By.name("program")));
+		   dropdownProgram.selectByValue("100003");
+		   wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-primary']"))).click();
+		   
+			 //LoginPage User
+			 	String AccountVisible;
+			 	String Verification;
+			 			
+			 	
+			 	AccountVisible = driver.findElement(By.cssSelector("a[href='/user/settings/profile']")).getAttribute("innerHTML");
+			 	Verification = driver.findElement(By.cssSelector("span[class='card-status verified']")).getAttribute("innerHTML");
+			 	if (Verification.equals("Verified") && AccountVisible.equals(User))
+			 	{
+			 		
+			 	}
+			 	else
+			 	{
+			 		System.out.println("ERROR");
+			 	}
 		  
 		 
 	}else{
