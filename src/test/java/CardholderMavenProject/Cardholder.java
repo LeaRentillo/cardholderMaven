@@ -1381,13 +1381,11 @@ public void OrderCard(){
 }
 @Test (priority = settings.orderCardTest1, alwaysRun = true)	
 public void OrderCard1(){
-	if (driver != null)
-		driver.quit();
 	
 	settings testSettings = new settings();
 	if(testSettings.skipTest("orderCardTest1")){
 		
-		this.LoginCall(EUUser,EUPass);
+		this.LoginCall(User,Pass);
 		
 		WebElement parseIndex = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main-content\"]/div[1]/div/h1")));
 		System.out.println(parseIndex.getText());
@@ -1522,6 +1520,24 @@ public void LoginCall(String param_user, String param_pass) {
 		   WebElement Password1 = driver.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
 		   Password1.sendKeys(param_pass);
 		   SignIn1.click();
+		   
+		   wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-primary']"))).click();
+		   
+			 //LoginPage User
+			 	String AccountVisible;
+			 	String Verification;
+			 			
+			 	
+			 	AccountVisible = driver.findElement(By.cssSelector("a[href='/user/settings/profile']")).getAttribute("innerHTML");
+			 	Verification = driver.findElement(By.cssSelector("span[class='card-status verified']")).getAttribute("innerHTML");
+			 	if (Verification.equals("Verified") && AccountVisible.equals(User))
+			 	{
+			 		
+			 	}
+			 	else
+			 	{
+			 		System.out.println("ERROR");
+			 	}
 		   
 		 
 	}else{
