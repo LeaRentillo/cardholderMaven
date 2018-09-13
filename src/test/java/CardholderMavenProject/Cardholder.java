@@ -1381,34 +1381,13 @@ public void OrderCard(){
 }
 @Test (priority = settings.orderCardTest1, alwaysRun = true)	
 public void OrderCard1(){
+	if (driver != null)
+		driver.quit();
 	
 	settings testSettings = new settings();
 	if(testSettings.skipTest("orderCardTest1")){
-		//System.setProperty("webdriver.chrome.driver","C:\\Users\\Dell\\Documents\\LEA\\SELENIUM\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
-		//**********************************//	 
 		
-		  wait = new WebDriverWait(driver, 20);   
-		   
-		   driver.manage().window().maximize();
-		   driver.get("https://dev.cardholder.an-other.co.uk/");
-		   
-			WebElement LoginLogo = driver.findElement (By.cssSelector("img[class='login-logo']"));
-			Assert.assertTrue(LoginLogo.isDisplayed());
-			WebElement forgotPassword = driver.findElement (By.xpath("//a[@href='/user/recovery/request']"));
-			forgotPassword.click();
-			
-			//Navigate Back
-			driver.navigate().back();
-		
-		
-
-		WebElement SignIn1 = driver.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
-		WebElement Username1 = driver.findElement(By.xpath("//*[@id=\"loginform-login\"]"));
-		Username1.sendKeys(EUUser);
-		WebElement Password1 = driver.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
-		Password1.sendKeys(EUPass);
-		SignIn1.click();
+		this.LoginCall(EUUser,EUPass);
 		
 		WebElement parseIndex = new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main-content\"]/div[1]/div/h1")));
 		System.out.println(parseIndex.getText());
@@ -1477,4 +1456,92 @@ public void OrderCard1(){
 	}
 }
 
+
+public void LoginCall(String param_user, String param_pass) {
+	settings testSettings = new settings();
+	
+	 if(testSettings.skipTest("loginTest")){
+		//** FOR FIREFOX BROWSER **//
+		   //driver = new firefoxDriver();
+		//********************************** //	 
+			
+		//** FOR CHROME BROWSER ** //
+		   System.setProperty("webdriver.chrome.driver","C:\\Users\\Dell\\Documents\\LEA\\SELENIUM\\chromedriver_win32\\chromedriver.exe");
+		   driver = new ChromeDriver();
+		//**********************************//	   
+		   
+		   
+		   wait = new WebDriverWait(driver, 20);   
+		   
+		   driver.manage().window().maximize();
+		   driver.get("https://dev.cardholder.an-other.co.uk/");
+		   
+			WebElement LoginLogo = driver.findElement (By.cssSelector("img[class='login-logo']"));
+			Assert.assertTrue(LoginLogo.isDisplayed());
+			WebElement forgotPassword = driver.findElement (By.xpath("//a[@href='/user/recovery/request']"));
+			forgotPassword.click();
+			WebElement ForgotPassword = driver.findElement (By.cssSelector("h3[class='panel-title'"));
+			WebElement Sumbit = driver.findElement(By.cssSelector ("button[class='btn btn-primary btn-block']"));
+			if (ForgotPassword.isDisplayed()  &&  Sumbit.isDisplayed() )
+			{ 
+				
+			}
+			else
+			{
+				System.out.println("ERROR");
+			}
+			
+		//Navigate Back
+			driver.navigate().back();
+			
+		//Didn't receive confirmation message?
+			driver.findElement(By.xpath("//*[@id=\"login-panel\"]/div/p/a")).click();
+			WebElement EmailText = driver.findElement(By.xpath("//*[@id=\"resendform-email\"]"));
+			WebElement ConfirmButton = driver.findElement(By.xpath("//*[@id=\"ResendForm\"]/button"));
+			if (EmailText.isDisplayed()  &&  ConfirmButton.isDisplayed())
+			{ 
+				
+			}
+			else
+			{
+				System.out.println("ERROR");
+			}
+			
+		//Navigate Back
+			driver.navigate().back();
+			
+		//Tick "Remember me next time"
+			WebElement Remember = driver.findElement(By.xpath("//*[@id=\"loginform-rememberme\"]"));
+			Remember.click();
+			Assert.assertTrue(Remember.isSelected());
+			
+			
+		   WebElement SignIn1 = driver.findElement(By.xpath("//*[@id=\"LoginForm\"]/button"));
+		   WebElement Username1 = driver.findElement(By.xpath("//*[@id=\"loginform-login\"]"));
+		   Username1.sendKeys(param_user);
+		   WebElement Password1 = driver.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
+		   Password1.sendKeys(param_pass);
+		   SignIn1.click();
+		   
+		   wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-primary']"))).click();
+		   
+		 //LoginPage User
+		 	String AccountVisible;
+		 	String Verification;
+		 			
+		 	
+		 	AccountVisible = driver.findElement(By.cssSelector("a[href='/user/settings/profile']")).getAttribute("innerHTML");
+		 	Verification = driver.findElement(By.cssSelector("span[class='card-status verified']")).getAttribute("innerHTML");
+		 	if (Verification.equals("Verified") && AccountVisible.equals(User))
+		 	{
+		 		
+		 	}
+		 	else
+		 	{
+		 		System.out.println("ERROR");
+		 	}
+	}else{
+		throw new SkipException("Skipping LoginTest case. ");
+	}
+}
 }//main
