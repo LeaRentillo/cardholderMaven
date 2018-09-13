@@ -1521,7 +1521,9 @@ public void LoginCall(String param_user, String param_pass) {
 		   Password1.sendKeys(param_pass);
 		   SignIn1.click();
 		   
-
+		   
+		   wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/div/form/div[1]/select")));
+		   
 		   Select dropdownProgram = new Select(driver.findElement(By.name("program")));
 		   dropdownProgram.selectByValue("100003");
 		   wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='btn btn-primary']"))).click();
